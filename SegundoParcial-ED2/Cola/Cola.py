@@ -5,8 +5,8 @@ class Nodo:
 
 class Cola:
     def __init__(self):
-        self.frente = None  # Nodo al frente de la cola
-        self.final = None   # Nodo al final de la cola
+        self.frente = None
+        self.final = None
         self.longitud = 0
 
     def esta_vacia(self):
@@ -28,7 +28,7 @@ class Cola:
             return None
         valor = self.frente.valor
         self.frente = self.frente.siguiente
-        if self.frente is None:  # Si la cola queda vacía
+        if self.frente is None:
             self.final = None
         self.longitud -= 1
         return valor
@@ -53,3 +53,16 @@ class Cola:
                 print(f"| {actual.valor} |")
                 actual = actual.siguiente
             print("------")
+
+    def minimo(self):
+        if self.esta_vacia():
+            print("Error: Cola vacía")
+            return None
+        actual = self.frente
+        minimo_valor = actual.valor
+        while actual:
+            if actual.valor < minimo_valor:
+                minimo_valor = actual.valor
+            actual = actual.siguiente
+        return minimo_valor
+       
