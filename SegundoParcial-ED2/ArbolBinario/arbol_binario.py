@@ -53,8 +53,13 @@ class ArbolBinario:
                 nodo.derecha = _eliminar(nodo.derecha, temp.valor)
             return nodo
         self.raiz = _eliminar(self.raiz, valor)
-
+        
     def inorden(self):
         def _inorden(nodo):
             return _inorden(nodo.izquierda) + [nodo.valor] + _inorden(nodo.derecha) if nodo else []
         return _inorden(self.raiz)
+    def superParent(self, x, z):
+        nodo_x = self.buscar(self.raiz, x)
+        if not nodo_x:
+            return False
+        return self.contiene(nodo_x.izq, z) or self.contiene(nodo_x.der, z)
