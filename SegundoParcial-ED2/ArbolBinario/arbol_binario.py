@@ -58,3 +58,6 @@ class ArbolBinario:
         def _inorden(nodo):
             return _inorden(nodo.izquierda) + [nodo.valor] + _inorden(nodo.derecha) if nodo else []
         return _inorden(self.raiz)
+    
+    def cola(n):
+        print('hola') 
